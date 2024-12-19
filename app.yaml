@@ -1,0 +1,23 @@
+runtime: nodejs18
+entrypoint: npm start
+
+handlers:
+- url: /
+  static_files: index.html
+  upload: index.html
+
+- url: /src/(.*)
+  static_files: src/\1
+  upload: src/(.*)
+
+- url: /src/api/(.*)
+  script: auto
+  secure: always
+
+- url: /src/scripts/(.*)
+  script: auto
+  secure: always
+
+- url: /api/(.*)
+  script: auto
+  secure: always
